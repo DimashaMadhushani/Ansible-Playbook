@@ -1,0 +1,17 @@
+---
+- name: Demonstrate variables, loops, and conditionals
+  hosts: localhost
+  gather_facts: false
+  vars:
+    nums:
+      - 5
+      - 12
+      - 8
+      - 20
+      - 15
+  tasks:
+    - name: Display numbers greater than 10
+      ansible.builtin.debug:
+        msg: "Number: {{ item }}"
+      loop: "{{ nums }}"
+      when: item > 10

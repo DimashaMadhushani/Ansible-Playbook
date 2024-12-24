@@ -1,0 +1,26 @@
+---
+- name: Example Playbook
+  hosts: localhost
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+- name: Example Playbook
+  hosts: localhost
+  gather_facts: yes
+
+  tasks:
+    - name: Display Kernel Version
+      ansible.builtin.debug:
+        msg: "Kernel version: {{ ansible_facts['kernel'] }}"
+
+    - name: Display Distribution Name
+      ansible.builtin.debug:
+        msg: "Distribution: {{ ansible_facts['distribution'] }}"
+
+    - name: Install Apache
+      ansible.builtin.package:
+        name: apache2
+        state: present
+

@@ -1,0 +1,11 @@
+---
+- name: Demonstrate idempotence with file module
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Ensure hello.txt exists with content 'hello'
+      ansible.builtin.lineinfile:
+        path: /tmp/hello.txt
+        line: "hello"
+        create: yes
+
